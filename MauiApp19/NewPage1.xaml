@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiApp19.NewPage1"
+             Title="NewPage1">
+    <VerticalStackLayout>
+        <Label 
+            Text="Welcome to .NET MAUI!"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" />
+
+        <Label 
+            Text="Wybierz rozmiar pizzy"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" />
+        <HorizontalStackLayout>
+            <RadioButton Content="Mała(25cm) - 20zł" />
+            <RadioButton Content="Średnia(32cm) - 28zł" />
+            <RadioButton Content="Duża(45cm) - 38zł" />
+        </HorizontalStackLayout>
+    </VerticalStackLayout>
+</ContentPage>
