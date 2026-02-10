@@ -3,36 +3,46 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="MauiApp19.NewPage1"
              Title="NewPage1">
-    <VerticalStackLayout>
+    <VerticalStackLayout HorizontalOptions="Center">
         <Label 
             Text="Wybierz rozmiar pizzy"
             VerticalOptions="Center" 
             HorizontalOptions="Center"
             FontSize="Large"/>
-        <HorizontalStackLayout HorizontalOptions="Center" Spacing="15">
-            <RadioButton Content="Mała(25cm) - 20zł" />
-            <RadioButton Content="Średnia(32cm) - 28zł" />
-            <RadioButton Content="Duża(45cm) - 38zł" />
+        <HorizontalStackLayout HorizontalOptions="Center" Spacing="15" RadioButtonGroup.GroupName="Rozmiar" RadioButtonGroup.SelectedValue="{Binding WybranyRozmiar, Mode=OneWayToSource}">
+            <RadioButton Content="Mała(25cm) - 20zł" CheckedChanged="" Value="20"/>
+            <RadioButton Content="Średnia(32cm) - 28zł" CheckedChanged="" Value="28"/>
+            <RadioButton Content="Duża(45cm) - 38zł" CheckedChanged="" Value="38"/>
         </HorizontalStackLayout>
         <Label 
              Text="Wybierz rodzaj ciasta"
              VerticalOptions="Center" 
              HorizontalOptions="Center"
              FontSize="Large"/>
-        <HorizontalStackLayout HorizontalOptions="Center" Spacing="15">
-            <RadioButton Content="Cienkie" />
-            <RadioButton Content="Grube" />
-            <RadioButton Content="Z serem w brzegu (+5zł)" />
+        <HorizontalStackLayout HorizontalOptions="Center" Spacing="15" RadioButtonGroup.GroupName="Ciasto" RadioButtonGroup.SelectedValue="{Binding WybraneCiasto, Mode=OneWayToSource}">
+            <RadioButton Content="Cienkie" Value="1"/>
+            <RadioButton Content="Grube" Value="2"/>
+            <RadioButton Content="Z serem w brzegu (+5zł)" Value="5"/>
         </HorizontalStackLayout>
-        <Label 
-             Text="Wybierz ilość sztuk"
-             VerticalOptions="Center" 
-             HorizontalOptions="Center"
-             FontSize="Large"/>
-        <Stepper x:Name="IloscStepper" 
-             Minimum="1" 
-             Maximum="10" 
-             Value="2"/>
-        <TimePicker Format="HH:mm" x:Name="Godzina"/>
+        <VerticalStackLayout HorizontalOptions="Center" Spacing="15">
+            <Label x:Name="IloscLabel" HorizontalOptions="Center" FontSize="Large" Text="{Binding Source={x:Reference IloscStepper}, Path=Value, StringFormat='{}Ilość sztuk: {0:0}'}"/>
+            <Stepper x:Name="IloscStepper"
+                  Minimum="1" 
+                  Maximum="10" 
+                  Value="{Binding WybranaIlosc, Mode=TwoWay}"
+                  ValueChanged=""
+                  HorizontalOptions="Center"/>
+            <Label
+                Text="Wybierz godzine odbioru"
+                VerticalOptions="Center" 
+                HorizontalOptions="Center"
+                FontSize="Large"/>
+            <TimePicker Format="HH:mm" x:Name="Godzina" HorizontalOptions="Center" />
+            <Label
+                x:Name="CenaLabel"
+                Text="{Binding Cena, Mode=OneWay, StringFormat='Cena: {0} zł'}"
+                HorizontalOptions="Center"
+                FontSize="Subtitle"/>
+        </VerticalStackLayout>
     </VerticalStackLayout>
 </ContentPage>
