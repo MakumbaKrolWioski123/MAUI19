@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:system="clr-namespace:System;assembly=netstandard"
+             x:Class="MauiApp19.NewPage2"
+             Title="NewPage2">
+    <ScrollView>
+        <VerticalStackLayout Spacing="10">
+        <Label 
+            Text="Formularz rejestracji na konferencje IT!"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center"
+            FontSize="Large"/>
+        <Entry 
+            x:Name="Imie" 
+            Placeholder="Podaj imię" 
+            HorizontalOptions="Center" 
+            WidthRequest="300"/>
+        <Entry
+            x:Name="Nazwisko" 
+            Placeholder="Podaj nazwisko" 
+            HorizontalOptions="Center" 
+            WidthRequest="300"/>
+        <Entry
+            x:Name="Email" 
+            Placeholder="Podaj email" 
+            HorizontalOptions="Center" 
+            Keyboard="Email"
+            WidthRequest="300"/>
+        <Picker x:Name="Firma" Title="Wybierz Firme" HorizontalOptions="Center" WidthRequest="300" SelectedIndex="1">
+            <Picker.Items>
+                <x:String>Logitich</x:String>
+                <x:String>Abibas</x:String>
+                <x:String>Bike</x:String>
+                <x:String>Guccii</x:String>
+                <x:String>Prada</x:String>
+                <x:String>Inna</x:String>
+            </Picker.Items>
+        </Picker>
+        <Label
+            Text="Wybierz date konferencji"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center"
+            FontSize="Large"/>
+        <DatePicker Format="dd.MM.yyyy" x:Name="Data" MinimumDate="{x:Static system:DateTime.Today}" HorizontalOptions="Center" WidthRequest="150"/>
+        <Label
+            Text="Wybierz rodzaj pakietu"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center"
+            FontSize="Large"/>
+        <VerticalStackLayout HorizontalOptions="Center" RadioButtonGroup.GroupName="RodzajPakietu">
+            <RadioButton Content="Basic(wstęp + materiały) - 200zł"/>
+            <RadioButton Content="Standard(+lunch) - 350zł"/>
+            <RadioButton Content="Premium(+warsztat) - 500zł"/>
+        </VerticalStackLayout>
+        <Label x:Name="DodatkoweOsobyLabel" HorizontalOptions="Center" FontSize="Large" Text="{Binding Source={x:Reference DodatkoweOsobyStepper}, Path=Value, StringFormat='{}Ilość osob towarzyszacych: {0:0}'}"/>
+        <Stepper x:Name="DodatkoweOsobyStepper"
+           Minimum="0" 
+           Maximum="3" 
+           Value="1"
+           ValueChanged=""
+           HorizontalOptions="Center"/>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

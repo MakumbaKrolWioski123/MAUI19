@@ -80,6 +80,7 @@ public partial class NewPage1 : ContentPage
                 {	
 					ciasto = 5;
                 }
+
                 return (WybranyRozmiar + ciasto) * WybranaIlosc;
 
             }

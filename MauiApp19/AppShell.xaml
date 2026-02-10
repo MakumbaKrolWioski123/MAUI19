@@ -18,6 +18,12 @@
         ContentTemplate="{DataTemplate local:NewPage1}"
         Route="NewPage1" />
         </Tab>
+        <Tab Title="MAUI 19.4">
+            <ShellContent
+        Title="MAUI 19.4"
+        ContentTemplate="{DataTemplate local:NewPage2}"
+        Route="NewPage2" />
+        </Tab>
     </TabBar>
 
 </Shell>
