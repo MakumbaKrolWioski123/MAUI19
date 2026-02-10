@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiApp19.NewPage1"
+             Title="NewPage1">
+    <VerticalStackLayout>
+        <Label 
+            Text="Wybierz rozmiar pizzy"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center"
+            FontSize="Large"/>
+        <HorizontalStackLayout HorizontalOptions="Center" Spacing="15">
+            <RadioButton Content="Mała(25cm) - 20zł" />
+            <RadioButton Content="Średnia(32cm) - 28zł" />
+            <RadioButton Content="Duża(45cm) - 38zł" />
+        </HorizontalStackLayout>
+        <Label 
+             Text="Wybierz rodzaj ciasta"
+             VerticalOptions="Center" 
+             HorizontalOptions="Center"
+             FontSize="Large"/>
+        <HorizontalStackLayout HorizontalOptions="Center" Spacing="15">
+            <RadioButton Content="Cienkie" />
+            <RadioButton Content="Grube" />
+            <RadioButton Content="Z serem w brzegu (+5zł)" />
+        </HorizontalStackLayout>
+        <Label 
+             Text="Wybierz ilość sztuk"
+             VerticalOptions="Center" 
+             HorizontalOptions="Center"
+             FontSize="Large"/>
+        <Stepper x:Name="IloscStepper" 
+             Minimum="1" 
+             Maximum="10" 
+             Value="2"/>
+        <TimePicker Format="HH:mm" x:Name="Godzina"/>
+    </VerticalStackLayout>
+</ContentPage>

@@ -10,30 +10,31 @@
 
         private void OnAlertClicked(object? sender, EventArgs e)
         {
-            string rodzajlekarza = RodzajLekarza.SelectedItem.ToString();
-            string data = Data.Date.ToString();
-            string godzina = Godzina.Time.ToString();
-            if (RodzajLekarza.SelectedItem == null)
+            if (RodzajLekarza.SelectedItem == null || string.IsNullOrWhiteSpace(RodzajLekarza.SelectedItem.ToString()))
             {
                 DisplayAlert("Alert", "Proszę wybrać rodzaj lekarza.", "OK");
                 return;
             }
-            else if
-            (Data.Date == null)
+
+
+            if (Data.Date == null || string.IsNullOrWhiteSpace(Data.Date.ToString()))
             {
                 DisplayAlert("Alert", "Proszę wybrać datę wizyty.", "OK");
                 return;
             }
-            else if (Godzina.Time == null)
+
+
+            if (Godzina.Time == null || string.IsNullOrWhiteSpace(Godzina.Time.ToString()))
             {
                 DisplayAlert("Alert", "Proszę wybrać godzinę wizyty.", "OK");
                 return;
             }
-            else
-            {
-                DisplayAlert("Alert", "Wizyta u: " + rodzajlekarza + ", dnia: " + data + ", o godzinie: " + godzina, "OK");
-                return;
-            }
+
+            string rodzajlekarza = RodzajLekarza.SelectedItem.ToString();
+            string data = Data.Date.ToString();
+            string godzina = Godzina.Time.ToString();
+
+            DisplayAlert("Alert", "Wizyta u: " + rodzajlekarza + ", dnia: " + data + ", o godzinie: " + godzina, "OK");
         }
     }
 }
