@@ -48,10 +48,10 @@
             VerticalOptions="Center" 
             HorizontalOptions="Center"
             FontSize="Large"/>
-        <VerticalStackLayout HorizontalOptions="Center" RadioButtonGroup.GroupName="RodzajPakietu">
-            <RadioButton Content="Basic(wstęp + materiały) - 200zł"/>
-            <RadioButton Content="Standard(+lunch) - 350zł"/>
-            <RadioButton Content="Premium(+warsztat) - 500zł"/>
+        <VerticalStackLayout x:Name="PakietGroup" HorizontalOptions="Center" RadioButtonGroup.GroupName="RodzajPakietu">
+            <RadioButton Content="Basic(wstęp + materiały) - 200zł" Value="200"/>
+            <RadioButton Content="Standard(+lunch) - 350zł" Value="350"/>
+            <RadioButton Content="Premium(+warsztat) - 500zł" Value="500"/>
         </VerticalStackLayout>
         <Label x:Name="DodatkoweOsobyLabel" HorizontalOptions="Center" FontSize="Large" Text="{Binding Source={x:Reference DodatkoweOsobyStepper}, Path=Value, StringFormat='{}Ilość osob towarzyszacych: {0:0}'}"/>
         <Stepper x:Name="DodatkoweOsobyStepper"
@@ -60,6 +60,15 @@
            Value="1"
            ValueChanged=""
            HorizontalOptions="Center"/>
+            <Label 
+                x:Name="SumaLabel" 
+                HorizontalOptions="Center" 
+                FontSize="Large"
+                Text=""/>
+            <Button 
+                Text="Zajerestruj się" 
+                HorizontalOptions="Center" 
+                Clicked="ObliczCene_Clicked"/>
         </VerticalStackLayout>
     </ScrollView>
 </ContentPage>
