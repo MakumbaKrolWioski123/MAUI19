@@ -1,0 +1,6 @@
+1.Picker czeka na pobranie wartości z bindingu.
+2.SelectedIndex=-1 oznacza ze domyślnie wybrana wartość to -1 i wystepuje gdy nie zmienimy na n.p SelectedIndex=0 czyli pierwszy element z listy;
+3.Bo kazdzy z tych radio buttonow jest wyborem rodzaju dostawy dlatego powinno się je grupować
+4.Value przypisuje wartość do radio buttona a content się wpisuje co chcemy aby pisało obok znacznika radio.
+5.Ustawia najwcześniejszą date jaką można wybrać na dzisiejszą
+6.Ponieważ nie możemy kupić 0 danego produktu.
